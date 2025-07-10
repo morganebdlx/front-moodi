@@ -1,13 +1,62 @@
-# React + Vite
+# 🌤️ Moodi — Assistant Météo IA
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Moodi** est une application météo intelligente développée en React, connectée à l'API WeatherAPI. Elle fournit des informations météorologiques en temps réel, des recommandations personnalisées (vêtements, activités, déplacements) et une interface esthétique et animée.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Fonctionnalités
 
-## Expanding the ESLint configuration
+- 🔍 **Recherche météo** par ville
+- 📍 Affichage des données actuelles : température, condition, UV, vent, humidité, lever/coucher du soleil
+- 🤖 **Recommandations IA** contextuelles (vêtements, activités, trajet)
+- 🎨 **Personnalisation** du thème (chaud / froid)
+- 🌈 **Arrière-plan animé** selon la météo
+- 📅 **Prévisions sur 7 jours**
+- 📱 **Design mobile-first** et accessible
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# front-moodi
+---
+
+## 🛠️ Stack technique
+
+- ⚛️ **React** (Vite)
+- 🎨 **CSS personnalisé** + **Lucide Icons**
+- 🔗 **Axios** pour les appels API
+- 📡 **WeatherAPI** (https://www.weatherapi.com/)
+- 🔐 Stockage des clés API côté back (si utilisé avec Rails)
+
+---
+
+## 📦 Installation
+
+### Prérequis
+
+- Node.js 18+
+- Une clé WeatherAPI gratuite : https://www.weatherapi.com/signup.aspx
+
+### Étapes
+
+```bash
+# Clone le repo
+git clone https://github.com/ton-compte/moodi.git
+cd moodi
+
+# Installe les dépendances
+npm install
+
+# Crée un fichier .env.local
+touch .env.local
+
+📚 Dépendances à installer
+bash
+
+npm install axios react-router-dom lucide-react
+
+✅ À faire
+Connexion API Rails pour recommandations IA
+
+Authentification utilisateur
+
+Multi-thèmes / accessibilité
+
+👩‍💻 Auteur
+Morgane Bourdillon

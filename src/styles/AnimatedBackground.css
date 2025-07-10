@@ -1,0 +1,90 @@
+/* Animated Background Styles */
+.animated-background {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+
+/* Main gradient background */
+.background-gradient {
+  position: absolute;
+  inset: 0;
+  background-size: 400% 400%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+.background-gradient.warm {
+  background: linear-gradient(45deg, #581c87, #7c2d12, #ea580c, #ec4899, #fbbf24);
+}
+
+.background-gradient.cool {
+  background: linear-gradient(45deg, #0f172a, #1e40af, #0891b2, #0891b2, #10b981);
+}
+
+/* Background overlay */
+.background-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* Orbs */
+.orbs-container {
+  position: absolute;
+  inset: 0;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: float linear infinite;
+  filter: blur(1px);
+}
+
+.orb.warm {
+  background: radial-gradient(circle, rgba(251, 146, 60, 0.4), rgba(236, 72, 153, 0.2));
+}
+
+.orb.cool {
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.4), rgba(59, 130, 246, 0.2));
+}
+
+.orb.warm:nth-child(1) { width: 120px; height: 120px; }
+.orb.warm:nth-child(2) { width: 80px; height: 80px; }
+.orb.warm:nth-child(3) { width: 150px; height: 150px; }
+.orb.warm:nth-child(4) { width: 100px; height: 100px; }
+.orb.warm:nth-child(5) { width: 60px; height: 60px; }
+.orb.warm:nth-child(6) { width: 180px; height: 180px; }
+
+.orb.cool:nth-child(1) { width: 120px; height: 120px; }
+.orb.cool:nth-child(2) { width: 80px; height: 80px; }
+.orb.cool:nth-child(3) { width: 150px; height: 150px; }
+.orb.cool:nth-child(4) { width: 100px; height: 100px; }
+.orb.cool:nth-child(5) { width: 60px; height: 60px; }
+.orb.cool:nth-child(6) { width: 180px; height: 180px; }
+
+/* Animations */
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) scale(1);
+  }
+  25% {
+    transform: translateY(-20px) translateX(10px) scale(1.1);
+  }
+  50% {
+    transform: translateY(-10px) translateX(-15px) scale(0.9);
+  }
+  75% {
+    transform: translateY(-30px) translateX(5px) scale(1.05);
+  }
+}
