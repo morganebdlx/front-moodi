@@ -34,29 +34,37 @@
 - Une clé WeatherAPI gratuite : https://www.weatherapi.com/signup.aspx
 
 ### Étapes
+🚀 Lancement
+bash
 
-```bash
-# Clone le repo
-git clone https://github.com/ton-compte/moodi.git
-cd moodi
-
-# Installe les dépendances
-npm install
-
-# Crée un fichier .env.local
-touch .env.local
+npm run dev
+L'application sera disponible sur http://localhost:5173
 
 📚 Dépendances à installer
 bash
 
 npm install axios react-router-dom lucide-react
 
-✅ À faire
+📁 Structure
+css
+
+src/
+├── components/
+│   ├── AnimatedBackground.jsx
+│   ├── PersonalizationForm.jsx
+├── WeatherHome.jsx
+├── App.jsx
+├── main.jsx
+├── App.css
+.env.local
+
+### ✅ À faire
+
 Connexion API Rails pour recommandations IA
 
 Authentification utilisateur
 
 Multi-thèmes / accessibilité
 
-👩‍💻 Auteur
+### 👩‍💻 Auteur
 Morgane Bourdillon
