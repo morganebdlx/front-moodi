@@ -1,31 +1,55 @@
-import { useEffect, useState } from "react"
-import api from "./api/axios" // instance Axios pointant vers Rails
-import WeatherHome from "./components/WeatherHome"
-import AnimatedBackground from "./components/AnimatedBackground"
-import PersonalizationForm from "./components/PersonalizationForm"
-import './App.css'
+import { useEffect, useState } from "react";
+import api from "./api/axios";// instance Axios pointant vers Rails
+import WeatherHome from "./components/WeatherHome";
+import AnimatedBackground from "./components/AnimatedBackground";
+import LoginForm from "./components/LoginForm";
+import './App.css';
+import Recommendations from "./components/RecommendationsCard";
 
 function App() {
-  const [users, setUsers] = useState([])
+  const [currentUser, setCurrentUser] = useState(null);
 
+  // Vérification de l'authentification à l'initialisation
   useEffect(() => {
-    api.get('/users') // Rails route: GET /users
-      .then(response => setUsers(response.data))
-      .catch(error => console.error('Erreur API :', error))
-  }, [])
+    api.get('/current_user') // Rails route pour récupérer l'utilisateur connecté
+      .then(response => {
+        if (response.data.user) {
+          setCurrentUser(response.data.user);
+        }
+      })
+      .catch(error => {
+        console.error('Erreur lors de la récupération de l’utilisateur :', error);
+      });
+  }, []);
+
+  // Récupération des utilisateurs après login
+
+ useEffect(() => {
+  if (currentUser) {
+    api.get('/users')
+      .then(response => {
+        console.log("Utilisateurs récupérés :", response.data)
+      })
+      .catch(error => {
+        console.error('Erreur API :', error)
+      })
+  }
+}, [currentUser]) // déclenche seulement après login
+
 
    return (
     <div>
       <h1>Moodi</h1>
       <WeatherHome />
       <AnimatedBackground />
-      <PersonalizationForm />
 
-      <ul>
-        {users.map(user => (
-          <li key={user.id}>{user.email}</li>
-        ))}
-      </ul>
+      <Recommendations />
+
+       {!currentUser ? (
+        <LoginForm onLogin={(user) => setCurrentUser(user)} />
+      ) : (
+        <p>Bienvenue, {currentUser.email} !</p>
+      )}
 
     </div>
   )
