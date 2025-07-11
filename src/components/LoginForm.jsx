@@ -22,12 +22,12 @@ const LoginForm = ({ onLoginSuccess }) => {
       <h2>Connexion</h2>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <div>
-        <label>Email :</label>
-        <input type="email" value={email} onChange={e => setEmail(e.target.value)} required />
+        <label htmlFor="email">Email :</label>
+        <input id="email" type="email" value={email} onChange={e => setEmail(e.target.value)} required />
       </div>
       <div>
-        <label>Mot de passe :</label>
-        <input type="password" value={password} onChange={e => setPassword(e.target.value)} required />
+        <label htmlFor="password">Mot de passe :</label>
+        <input id="password" type="password" value={password} onChange={e => setPassword(e.target.value)} required />
       </div>
       <button type="submit">Se connecter</button>
     </form>
