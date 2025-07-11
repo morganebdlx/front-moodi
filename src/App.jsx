@@ -46,7 +46,7 @@ function App() {
       <Recommendations />
 
        {!currentUser ? (
-        <LoginForm onLogin={(user) => setCurrentUser(user)} />
+        <LoginForm onLoginSuccess={(user) => setCurrentUser(user)} />
       ) : (
         <p>Bienvenue, {currentUser.email} !</p>
       )}
